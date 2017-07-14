@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Join League of Legends</title>
+    <link rel="shortcut icon" href="/resources/images/header/gt_favicon.png">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/resources/css/main.css">
+    <script src="/resources/js/html5shiv.js"></script>
+    <script src="/resources/js/respond.min.js"></script>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div th:insert="~{fragments :: navbar}" class="navbar navbar-inverse navbar-fixed-top headroom"></div>
+<!-- /.navbar -->
+
+<!-- Header -->
+<header id="head" class="secondary"></header>
+<!-- /Header -->
+
+<!-- container -->
+<div class="container">
+
+    <div class="row">
+
+        <aside class="col-md-4 sidebar sidebar-left">
+
+            <div class="row widget">
+                <div class="col-xs-12">
+                    <img th:src="${user.getSrcAvatar()}" height="200" width="200">
+                    <br>
+                    <a href="/" class="btn btn-action" th:if="${#authentication.name} == ${user.name}">change</a>
+                    <br>
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="btn btn-action" th:if="${#authentication.name} == ${user.name}">
+                            logout
+                        </button>
+                    </form>
+                    <a href="/" class="btn btn-action" th:if="${#authentication.name} == ${user.name}">change
+                        password</a>
+                    <a href="/user/change-information" class="btn btn-action"
+                       th:if="${#authentication.name} == ${user.name}">change information</a>
+                </div>
+            </div>
+
+        </aside>
+
+        <article class="col-md-8 maincontent">
+            <header class="page-header">
+                <h1 class="page-title" th:text="${user.getName()}">Name</h1>
+            </header>
+            <div>
+                <p style="font-size: large">Personal information</p>
+                <br>
+                <p th:text="${user.getFirstName()}">first name</p>
+                <br>
+                <p th:text="${user.getMail()}">mail</p>
+                <br>
+                <p th:text="${user.getAddress().getCountry()}">Country</p>
+                <br>
+                <p th:text="${user.getAddress().getCity()}">City</p>
+            </div>
+            <footer>
+                <h2 class="page-title">Created topics</h2>
+                <th:block th:each="topic : ${topics}">
+                    <p th:text="${topic.getName()}">name</p>
+                </th:block>
+            </footer>
+        </article>
+
+    </div>
+</div>
+<!-- /container -->
+
+<!-- Footer -->
+<div th:insert="~{fragments :: footer}"></div>
+<!-- /Footer -->
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/resources/js/headroom.min.js"></script>
+<script src="/resources/js/jQuery.headroom.min.js"></script>
+<script src="/resources/js/template.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Join League of Legends</title>
+    <link rel="shortcut icon" href="/resources/images/header/gt_favicon.png">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="/resources/js/html5shiv.js"></script>
+    <script src="/resources/js/respond.min.js"></script>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div th:insert="~{fragments :: navbar}" class="navbar navbar-inverse navbar-fixed-top headroom"></div>
+<!-- /.navbar -->
+
+<!-- Header -->
+<header id="head" class="secondary"></header>
+<!-- /Header -->
+
+<!-- container -->
+<div class="container">
+
+    <div>
+    <!-- Sidebar -->
+    <aside class="col-md-4 sidebar sidebar-right">
+        <div class="row widget">
+            <div class="col-xs-12">
+                <a class="btn btn-danger topd" th:href="@{/news/change(newsId=${simpleNews.getId()})}">Change news</a>
+            </div>
+        </div>
+    </aside>
+    <!-- /Sidebar -->
+    </div>
+
+    <div class="row">
+        <!-- Article main content -->
+        <article class="col-md-8 maincontent">
+            <h1 class="page-title" th:text="${simpleNews.getName()}">Some name</h1>
+            <img th:src="${simpleNews.getSrcPicture()}">
+            <p th:text="${simpleNews.getText()}" align="justify">Text</p>
+            <br>
+        </article>
+        <!-- /Article -->
+
+    </div>
+
+
+    <div class="form-group">
+        <form class="form-horizontal" method="post" th:action="@{/news/create/comment(newsId=${simpleNews.getId()})}" th:object="${comment}">
+            <label>Enter your comment</label>
+            <textarea th:field="*{text}" class="form-control" rows="5"></textarea>
+            <br>
+            <button class="btn btn-action btn-lg" type="submit">Send</button>
+        </form>
+    </div>
+
+    <div class="arrow">
+        <table class="table" >
+            <tbody th:each="comment : ${comments}">
+            <tr>
+                <td><img th:href="${comment.getUser().getSrcAvatar()}">
+                <br><a th:text="${comment.getUser().getName()}" th:href="@{/user(id=${comment.getUser().getId()})}"></a>
+                </td>
+                <td th:text="${comment.getText()}">comment text</td>
+                <td th:text="${comment.getDateOfCreation()}">date</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /container -->
+
+<!-- Footer -->
+<div th:insert="~{fragments :: footer}"></div>
+<!-- /Footer -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/resources/js/headroom.min.js"></script>
+<script src="/resources/js/jQuery.headroom.min.js"></script>
+<script src="/resources/js/template.js"></script>
+</body>
+</html>

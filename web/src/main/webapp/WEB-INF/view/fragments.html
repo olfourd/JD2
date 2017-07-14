@@ -1,0 +1,108 @@
+<head xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <!-- Header -->
+    <div th:fragment="header">
+        <header id="head">
+            <div class="container">
+                <div class="row">
+                    <h1 class="lead" th:text="#{header.main.join}">JOIN OUR COMMUNITY</h1>
+                    <p><a class="btn btn-default btn-lg" role="button" href="/heroes" th:text="#{header.main.more_info}">MORE INFO</a>
+                        <a class="btn btn-action btn-lg" role="button"
+                           href="https://signup.eune.leagueoflegends.com/en/signup/redownload" th:text="#{header.main.download}">DOWNLOAD NOW</a>
+                    </p>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- /Header -->
+
+    <!-- Fixed navbar -->
+    <div th:fragment="navbar">
+        <div class="navbar navbar-inverse navbar-fixed-top headroom">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Button for smallest screens -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img src="/resources/images/header/logo.png"
+                                                          alt="Progressus HTML5 template"></a>
+                </div>
+
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="active"><a href="/news?page=1" th:text="#{header.news}">News</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:text="#{header.info}">GemeInfo<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="/heroes" th:text="#{header.info.heroes}">Heroes</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/forum" th:text="#{header.forum}">Forum</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:text="#{header.language}">Language</a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a th:href="@{/(language=en_US)}" th:text="#{header.language.en}">English</a></li>
+                                <li class="active"><a th:href="@{/(language=ru_RU)}" th:text="#{header.language.rus}">Russian</a></li>
+                            </ul>
+                        </li>
+                        <li sec:authorize="isAuthenticated()" class="dropdown">
+                            <a href="user" class="btn" th:text="${#authentication.name}">User</a>
+                        </li>
+                        <li sec:authorize="isAnonymous()"><a class="btn" href="signin" th:text="#{header.signin}">SIGN IN / SIGN UP</a></li>
+                    </ul>
+
+
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- /Fixed navbar -->
+
+    <!-- Footer -->
+    <div th:fragment="footer">
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title" th:text="#{footer.contact}">Contact</h3>
+                        <div class="widget-body">
+                            <p><a href="mailto:#">olfourd@gmail.com</a><br></p>
+                        </div>
+                    </div>
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="/">Home</a> |
+                                <a href="/news?page=1" th:text="#{footer.news}">News</a> |
+                                <a href="/forum" th:text="#{footer.forum}">Forum</a> |
+                                <a href="/user" th:text="#{footer.profile}">User</a> |
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                2017, Olfourd.
+                            </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+    </div>
+    <!-- /Footer -->
+
+</head>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Join League of Legends</title>
+    <link rel="shortcut icon" href="/resources/images/header/gt_favicon.png">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/resources/css/main.css">
+    <script src="/resources/js/html5shiv.js"></script>
+    <script src="/resources/js/respond.min.js"></script>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div th:insert="~{fragments :: navbar}" class="navbar navbar-inverse navbar-fixed-top headroom"></div>
+<!-- /.navbar -->
+
+<!-- Header -->
+<header id="head" class="secondary"></header>
+<!-- /Header -->
+
+<!-- container -->
+<div class="container-fluid row row-eq-height" >
+        <div class="col-sm-3 col-md-1" th:each="hero, iterationStatus : ${heroes}">
+                <img th:src="${hero.getPassToPicture()}" th:href="@{/hero(id=${hero.getId()})}">
+            <br>
+                <a th:href="@{/hero(id=${hero.getId()})}" th:text="${hero.getName()}"></a>
+        </div>
+</div>
+<!-- /container -->
+
+<!-- Footer -->
+<div th:insert="~{fragments :: footer}"></div>
+<!-- /Footer -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/resources/js/headroom.min.js"></script>
+<script src="/resources/js/jQuery.headroom.min.js"></script>
+<script src="/resources/js/template.js"></script>
+</body>
+</html>

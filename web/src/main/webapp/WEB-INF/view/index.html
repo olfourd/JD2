@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Join League of Legends</title>
+    <link rel="shortcut icon" href="/resources/images/header/gt_favicon.png">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/resources/css/main.css">
+    <script src="/resources/js/html5shiv.js"></script>
+    <script src="/resources/js/respond.min.js"></script>
+</head>
+
+<body class="home">
+<!-- Fixed navbar -->
+<div th:insert="~{fragments :: navbar}" class="navbar navbar-inverse navbar-fixed-top headroom"></div>
+<!-- /.navbar -->
+
+<!-- Header -->
+<div th:insert="~{fragments :: header}"></div>
+<!-- /Header -->
+
+<!-- container -->
+<div class="container">
+    <!-- Highlights - jumbotron -->
+    <div class="jumbotron top-space">
+        <div class="container">
+
+            <h3 class="text-center thin" th:text="#{page.main.reasons_to_play}">Reasons to play this game</h3>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><i class="fa fa-cogs fa-5"></i><h4 th:text="#{page.main.low_system_requirements}">Low system requirements</h4></div>
+                    <div class="h-body text-center">
+                        <p th:text="#{page.main.low_system_requirements.discription}">LoL does not require a steep
+                            computer to run. Ancient laptops, grandmother's computers,
+                            machines at work - minimal system requirements will allow running the game almost on the
+                            refrigerator!</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><i class="fa fa-flash fa-5"></i><h4 th:text="#{page.main.easy_to_learn}">Easy to learn</h4></div>
+                    <div class="h-body text-center">
+                        <p th:text="#{page.main.easy_to_learn.discriprion}">To fully adapt users, special Bots-mentors
+                            have been created, which help novice gamers to get
+                            used to the virtual world. In addition, each task is built in such a way as to gradually
+                            train you.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><i class="fa fa-heart fa-5"></i><h4 th:text="#{page.main.regular_updates}">Regular updates and support for
+                        developers</h4></div>
+                    <div class="h-body text-center">
+                        <p th:text="#{page.main.regular_updates.discription}">LoL is the only project Riot is working
+                            on. Therefore, developers pay special attention to
+                            it. It is regularly updated and updated.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><i class="fa fa-smile-o fa-5"></i><h4 th:text="#{page.main.friendly_community}">friendly community</h4></div>
+                    <div class="h-body text-center">
+                        <p th:text="#{page.main.friendly_community.discriprion}">Compared with other games in the genre
+                            MOBA, you will meet a lot less inadequate players.
+                            Also in the game there is no voice communication and you do not have to listen to how to
+                            play from the twelve-year old pro players </p>
+                    </div>
+                </div>
+            </div> <!-- /row  -->
+
+        </div>
+    </div>
+    <!-- /Highlights -->
+
+    <!-- container -->
+    <div class="container">
+
+        <h2 class="text-center top-space" th:text="#{page.main.frequently_asked_questions}">Frequently Asked Questions</h2>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 th:text="#{page.main.free_champion}">FREE CHAMPIONS OF THE WEEK</h3>
+                <p th:text="#{page.main.free_champion.discription}">Every week 10 champions are selected, performing in
+                    different roles, for which you can play for free.
+                    This gives the callers the opportunity to try to play for the champions, who are interested in them.
+                    In addition, it increases the number of available champions for summoners who started playing not
+                    long ago.</p>
+            </div>
+            <div class="col-sm-6">
+                <h3 th:text="#{page.main.rules}">WHAT RULES SHOULD BE AVOIDED WHEN CHOOSING THE NAME OF THE CALLER?</h3>
+                <p th:text="#{page.main.rules.discription}">
+                    The names of all conscripts must comply with the Terms of Use. The most unseemly names and names
+                    that include profanity will be filtered automatically. But in the end, the task of choosing an
+                    acceptable name falls on you.
+                    The summoner's name must be at least 3 and not longer than 16 characters.
+                    The caller's name can not contain the word "Riot".
+                    Your caller name should not contain information that you can be identified. For example, your real
+                    name or address. If it turns out that your caller's name contains such information, Riot Games has
+                    the right to change it.
+                    An attempt to present yourself as a cyber sportsman or impersonate a cybersport is also considered a
+                    violation, even if the system allows you to choose a given name. Such names of summoners can also be
+                    changed.</p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 th:text="#{page.main.download}">Where can I download the client?</h3>
+                <p th:text="#{page.main.download.discription}">
+                    See the link above or go to the official website of Lague of Legends
+                </p><a th:text="#{page.main.link.download}"
+                       href="https://signup.leagueoflegends.com/ru/signup/redownload">download</a>
+            </div>
+        </div> <!-- /row -->
+
+    </div>    <!-- /container -->
+</div>
+<!-- container -->
+
+<!-- Footer -->
+<div th:insert="~{fragments :: footer}"></div>
+<!-- /Footer -->
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/resources/js/headroom.min.js"></script>
+<script src="/resources/js/jQuery.headroom.min.js"></script>
+<script src="/resources/js/template.js"></script>
+</body>
+</html>

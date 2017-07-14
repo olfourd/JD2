@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Join League of Legends</title>
+    <link rel="shortcut icon" href="/resources/images/header/gt_favicon.png">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/resources/css/main.css">
+    <script src="/resources/js/html5shiv.js"></script>
+    <script src="/resources/js/respond.min.js"></script>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div th:insert="~{fragments :: navbar}" class="navbar navbar-inverse navbar-fixed-top headroom"></div>
+<!-- /.navbar -->
+
+<!-- Header -->
+<header id="head" class="secondary"></header>
+<!-- /Header -->
+
+<!-- container -->
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="col-md-4 sidebar sidebar-right">
+        <a class="btn btn-danger top" href="/news/create">Create news</a>
+    </aside>
+    <!-- /Sidebar -->
+
+    <div class="row">
+        <!-- Article main content -->
+        <article class="col-md-8 maincontent" th:each="news : ${allNews}">
+            <h1 class="page-title" th:text="${news.getName()}">Some name</h1>
+            <img width="650" height="400" th:src="${news.getSrcPicture()}"></a>
+            <p th:text="${news.getText().substring(0, 210)}">TextMore </p>
+            <a th:href="@{/news/simple(id=${news.id})}">more</a>
+        </article>
+        <!-- /Article -->
+    </div>
+
+    <div class="pagination">
+        <div class="paginator">
+            <th:block th:each="i : ${#numbers.sequence(1, pages)}">
+                <a th:text="${i}" th:href="@{/news(page=${i})}">number of page</a>
+            </th:block>
+        </div>
+    </div>
+
+</div>
+<!-- /container -->
+
+<!-- Footer -->
+<div th:insert="~{fragments :: footer}"></div>
+<!-- /Footer -->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/resources/js/headroom.min.js"></script>
+<script src="/resources/js/jQuery.headroom.min.js"></script>
+<script src="/resources/js/template.js"></script>
+
+
+</body>
+</html>
