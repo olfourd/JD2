@@ -35,14 +35,6 @@ public class ForumTopicGlobalDaoTest extends BaseDaoTest {
         assertEquals(globalTopic.getName(), name);
     }
 
-    @Test
-    public void changeName() {
-        ForumTopicGlobal topic = topicGlobalDao.getByName("global topic");
-        String newName = "QWERTY";
-        topic.setName(newName);
-        ForumTopicGlobal updatedTopic = topicGlobalDao.changeName(topic, newName);
-        assertEquals(updatedTopic.getName(), newName);
-    }
 
     @Test
     public void getAllSimpleTopicsById() {

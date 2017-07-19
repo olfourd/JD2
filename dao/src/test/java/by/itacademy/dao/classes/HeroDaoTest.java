@@ -44,28 +44,5 @@ public class HeroDaoTest extends BaseDaoTest {
         assertTrue(namesOfAbilities.contains("Headbutt"));
     }
 
-    @Test
-    public void changeName() throws Exception {
-        Hero alistar = heroDao.getByName("Alistar");
-        String newName = "QWERTY";
-        Hero updatedHero = heroDao.changeName(alistar, newName);
-        assertEquals(updatedHero.getName(), newName);
-    }
-
-    @Test
-    public void changeRole() throws Exception {
-        Hero alistar = heroDao.getByName("Alistar");
-        HeroRole newRole = HeroRole.SUPPORT;
-        Hero updatedHero = heroDao.changeRole(alistar, newRole);
-        assertEquals(updatedHero.getRole(), newRole);
-    }
-
-    @Test
-    public void changePicture() throws Exception {
-        Hero alistar = heroDao.getByName("Alistar");
-        String newPicture = "QWERTY";
-        Hero updatedHero = heroDao.changePicture(alistar, newPicture);
-        assertEquals(updatedHero.getPassToPicture(), newPicture);
-    }
 
 }

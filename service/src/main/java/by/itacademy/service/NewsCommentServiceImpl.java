@@ -13,8 +13,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Loggable
 public class NewsCommentServiceImpl
         extends BaseServiceImpl<NewsComment, NewsCommentDaoImpl> implements NewsCommentService{
-    @Override
-    public NewsComment changeText(NewsComment comment, String text) {
-        return getRepository().changeText(comment, text);
-    }
+
 }

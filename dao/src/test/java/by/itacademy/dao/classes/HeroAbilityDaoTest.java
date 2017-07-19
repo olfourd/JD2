@@ -28,28 +28,5 @@ public class HeroAbilityDaoTest extends BaseDaoTest {
         assertEquals(ability.getName(), nameAbility);
     }
 
-    @Test
-    public void changeName() {
-        HeroAbility ability = heroAbilityDao.getByName("Headbutt");
-        String newName = "QWERTY";
-        HeroAbility updatedAbility = heroAbilityDao.changeName(ability, newName);
-        assertEquals(updatedAbility.getName(), newName);
-    }
-
-    @Test
-    public void changePicture() {
-        HeroAbility ability = heroAbilityDao.getByName("Headbutt");
-        String newPassToPicture = "QWERTY";
-        HeroAbility updatedAbility = heroAbilityDao.changePicture(ability, newPassToPicture);
-        assertEquals(updatedAbility.getPassToImg(), newPassToPicture);
-    }
-
-    @Test
-    public void changeVideo() {
-        HeroAbility ability = heroAbilityDao.getByName("Headbutt");
-        String newPassToVideo = "QWERTY";
-        HeroAbility updatedAbility = heroAbilityDao.changeVideo(ability, newPassToVideo);
-        assertEquals(updatedAbility.getPassToVideo(), newPassToVideo);
-    }
 
 }

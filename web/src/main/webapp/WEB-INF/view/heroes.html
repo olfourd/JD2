@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/resources/css/lol-kit.css">
     <link rel="stylesheet" href="/resources/css/main.css">
     <script src="/resources/js/html5shiv.js"></script>
     <script src="/resources/js/respond.min.js"></script>
@@ -25,13 +26,133 @@
 <!-- /Header -->
 
 <!-- container -->
-<div class="container-fluid row row-eq-height" >
-        <div class="col-sm-3 col-md-1" th:each="hero, iterationStatus : ${heroes}">
-                <img th:src="${hero.getPassToPicture()}" th:href="@{/hero(id=${hero.getId()})}">
-            <br>
-                <a th:href="@{/hero(id=${hero.getId()})}" th:text="${hero.getName()}"></a>
+<div class="section-wrapper section-wrapper-primary">
+    <div class="section-quickbg"></div>
+    <div class="section-wrapper-top"></div>
+    <div class="section-wrapper-content">
+        <div class="section-quickbg"></div>
+        <div class="section-wrapper-content-wrapper">
+            <div class="gs-container">
+                <div class="default-1-1">
+                    <div class="content-border">
+                        <div class="white-stone">
+                            <div class="white-stone-content">
+                                <div id="champion-filter">
+                                    <header id="champions-filter-header" class="header-plain">
+                                        <h3>Champion Filters</h3>
+                                        <!--<nav>-->
+                                        <!--<div class="btn-input">-->
+                                        <!--<input type="text" id="filter-name" placeholder="Search Champions"-->
+                                        <!--maxlength="150">-->
+                                        <!--<button class="btn-mini">-->
+                                        <!--<em class="icon icon-search"></em>-->
+                                        <!--</button>-->
+                                        <!--</div>-->
+                                        <!--</nav>-->
+                                    </header>
+
+                                    <br>
+
+                                    <form method="post" th:action="@{/heroes}" id="form">
+                                        <div class="gs-container gs-vertical-sync">
+                                            <div class="default-1-1" style="height: 144px;">
+                                                <h4>Roles:</h4>
+                                                <div class="gs-container default-7-col">
+                                                    <div>
+                                                        <input type="checkbox" value="ASSASIN" id="role-assassin"
+                                                               name="assasin">
+                                                        <label for="role-assassin">Assassin</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" value="WARRIOR" id="role-fighter"
+                                                               name="warrior">
+                                                        <label for="role-fighter">Fighter</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" value="MAGE" id="role-mage" name="mage">
+                                                        <label for="role-mage">Mage</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" value="SUPPORT" id="role-support"
+                                                               name="support">
+                                                        <label for="role-support">Support</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" value="TANK" id="role-tank" name="tank">
+                                                        <label for="role-tank">Tank</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" value="SHOOTER" id="role-marksman"
+                                                               name="shooter">
+                                                        <label for="role-marksman">Marksman</label>
+                                                    </div>
+                                                    <button type="submit" class="btn-warning">Find</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="default-1-1">
+                <div id="champion-grid-container">
+                    <header class="header-plain">
+                        <h2>Champion Grid</h2>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" class="btn-mini list-button">
+                                        <span class="icon icon-list"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn-mini grid-button active">
+                                        <span class="icon icon-grid"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <div class="content-border">
+                        <div id="champion-grid-content">
+                            <div class=" rg-box-container rg-display-Riot.champions.GridView" data-control="cont4">
+                                <ul class="champion-grid grid-list gs-container gs-no-gutter default-7-col content-center">
+                                    <li th:each="hero : ${heroes}">
+                                        <div>
+                                                <span class="content-border">
+                                                    <a th:href="@{/hero(id=${hero.getId()})}"><img class="img"
+                                                                                                   th:src="${hero.getPassToPicture()}"
+                                                                                                   style="display: inline;"></a>
+                                                </span>
+                                            <div class="champ-name">
+                                                <a th:href="@{/hero(id=${hero.getId()})}"
+                                                   th:text="${hero.getName()}">Aatrox</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="white-stone no-results" style="display: none;">
+                                    <div class="white-stone-content">No champions match your criteria.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 </div>
+<div class="section-wrapper-bottom"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <!-- /container -->
 
 <!-- Footer -->

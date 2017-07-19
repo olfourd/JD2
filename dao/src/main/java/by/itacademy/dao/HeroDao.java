@@ -6,16 +6,13 @@ import by.itacademy.entity.HeroAbility;
 import by.itacademy.entity.other.HeroRole;
 
 import java.util.List;
+import java.util.Set;
 
 public interface HeroDao extends BaseDao<Hero> {
 
     List<HeroAbility> getAllAbilities(Long primaryKey);
 
-    Hero changeName(Hero hero, String name);
-
-    Hero changeRole(Hero hero, HeroRole heroRole);
-
-    Hero changePicture(Hero hero, String srcPicture);
-
     Hero getByName(String name);
+
+    List<Hero> getWithFilter(HeroRole heroRole);
 }

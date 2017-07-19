@@ -32,6 +32,11 @@ public class Hero extends BaseEntity {
 
     @Getter
     @Setter
+    @Column(name = "pass_to_video")
+    private String passToVideo;
+
+    @Getter
+    @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private HeroRole role;

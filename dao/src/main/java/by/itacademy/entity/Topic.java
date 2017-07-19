@@ -34,6 +34,11 @@ public class Topic extends BaseEntity {
     @Column(name = "date")
     private LocalDate dateOfCreation;
 
+//    @Getter
+//    @Setter
+//    @Version
+//    private String version;
+
     @Getter
     @Setter
     @ManyToOne

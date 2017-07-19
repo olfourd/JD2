@@ -22,17 +22,8 @@ public class ForumTopicSimpleServiceImpl
     }
 
     @Override
-    public ForumTopicSimple changeTheme(ForumTopicSimple topicSimple, ForumTopicGlobal topicGlobal) {
-        return getRepository().changeTheme(topicSimple, topicGlobal);
-    }
-
-    @Override
     public List<ForumPost> getAllForumPosts(Long primaryKey) {
         return getRepository().getAllForumPosts(primaryKey);
     }
 
-    @Override
-    public ForumTopicSimple changeText(ForumTopicSimple topicSimple, String text) {
-        return getRepository().changeText(topicSimple, text);
-    }
 }

@@ -35,30 +35,6 @@ public class NewsDaoTest extends BaseDaoTest{
     }
 
     @Test
-    public void changePicture() throws Exception {
-        News news = newsDao.getByName("This is the first News!");
-        String srcPicture = "D:/";
-        News updatedNews = newsDao.changePicture(news, srcPicture);
-        assertEquals(updatedNews.getSrcPicture(), srcPicture);
-    }
-
-    @Test
-    public void changeName() throws Exception {
-        News news = newsDao.getByName("This is the first News!");
-        String name = "HELLO!";
-        News updatedNews = newsDao.changeName(news, name);
-        assertEquals(updatedNews.getName(), name);
-    }
-
-    @Test
-    public void changeText() throws Exception {
-        News news = newsDao.getByName("This is the first News!");
-        String Text = "Change text";
-        News updatedNews = newsDao.changeText(news, Text);
-        assertEquals(updatedNews.getText(), Text);
-    }
-
-    @Test
     public void getCommentsByNewsId() throws Exception {
         News news = newsDao.getByName("This is the first News!");
         List<NewsComment> comments = newsDao.getCommentsByNewsId(news.getId());

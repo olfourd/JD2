@@ -50,12 +50,10 @@ public class NewsController {
     @PostMapping(path = "/news/create/comment", params = "newsId")
     public String createComment(@RequestParam("newsId") Long newsId,
                                 NewsComment newsComment) {
-//        if (newsComment.getText().isEmpty()) {
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         newsComment.setUser(userService.getByLogin(userName));
         newsComment.setNews(newsService.getById(newsId));
         commentService.create(newsComment);
-//        }
         return "redirect:/news/simple?id=" + newsId;
     }
 
@@ -100,4 +98,6 @@ public class NewsController {
         model.addAttribute("pages", pages);
         return "news";
     }
+
+
 }

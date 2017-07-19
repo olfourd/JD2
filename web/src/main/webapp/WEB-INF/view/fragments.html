@@ -43,8 +43,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:text="#{header.language}">Language</a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a th:href="@{/(language=en_US)}" th:text="#{header.language.en}">English</a></li>
-                                <li class="active"><a th:href="@{/(language=ru_RU)}" th:text="#{header.language.rus}">Russian</a></li>
+                                <li class="active"><a th:href="@{?(language=en_US)}" th:text="#{header.language.en}">English</a></li>
+                                <li class="active"><a th:href="@{?(language=ru_RU)}" th:text="#{header.language.rus}">Russian</a></li>
                             </ul>
                         </li>
                         <li sec:authorize="isAuthenticated()" class="dropdown">

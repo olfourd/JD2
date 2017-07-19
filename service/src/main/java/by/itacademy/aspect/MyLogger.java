@@ -6,7 +6,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StopWatch;
 
 import static org.apache.log4j.Logger.getLogger;
@@ -24,12 +23,12 @@ public class MyLogger {
         final Logger logger = getLogger(targetClass);
         try {
             final String className = targetClass.getSimpleName();
-            logger.debug(getPreMessage(joinPoint, className));
+            logger.info(getPreMessage(joinPoint, className));
             final StopWatch stopWatch = new StopWatch();
             stopWatch.start();
             final Object retVal = joinPoint.proceed();
             stopWatch.stop();
-            logger.debug(getPostMessage(joinPoint, className, stopWatch.getTotalTimeMillis()));
+            logger.info(getPostMessage(joinPoint, className, stopWatch.getTotalTimeMillis()));
             return retVal;
         } catch (final Throwable ex) {
             logger.error(getErrorMessage(ex), ex);

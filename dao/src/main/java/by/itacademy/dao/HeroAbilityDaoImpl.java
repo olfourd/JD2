@@ -7,23 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class HeroAbilityDaoImpl extends BaseDaoImpl<HeroAbility> implements HeroAbilityDao {
-    @Override
-    public HeroAbility changeName(HeroAbility ability, String name) {
-        ability.setName(name);
-        return update(ability);
-    }
-
-    @Override
-    public HeroAbility changePicture(HeroAbility ability, String src) {
-        ability.setPassToImg(src);
-        return update(ability);
-    }
-
-    @Override
-    public HeroAbility changeVideo(HeroAbility ability, String src) {
-        ability.setPassToVideo(src);
-        return update(ability);
-    }
 
     @Override
     public HeroAbility getByName(String name) {

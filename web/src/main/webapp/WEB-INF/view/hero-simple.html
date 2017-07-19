@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
     <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="/resources/css/lol-kit.css">
     <script src="/resources/js/html5shiv.js"></script>
     <script src="/resources/js/respond.min.js"></script>
 </head>
@@ -26,18 +27,101 @@
 
 <!-- container -->
 <div class="container">
-    <img th:src="${hero.getPassToPicture()}">
-    <br>
-    <p th:text="${hero.getName()}">name</p>
-    <br>
-    <p th:text="${hero.getRole()}"></p>
-    <br>
+    <div>
+        <div class="section-wrapper section-wrapper-primary">
+            <div class="section-wrapper-top"></div>
 
-    <table th:each="ability : ${abilities}">
-        <p th:text="${ability.getName()}" ></p>
-        <video th:src="${ability.getPassToVideo()}" controls></video>
+            <div class="section-wrapper-content">
+                <div class="section-quickbg"></div>
+                <div class="section-wrapper-content-wrapper">
+                    <div class="gs-container">
+                        <div class="default-1-2">
+                            <div class="content-border">
+                                <div class="white-stone">
+                                    <div class="white-stone-content">
+                                        <div class="gs-container">
+                                            <div class="default-1-3">
+                                                <img class="" th:src="${hero.passToPicture}">
+                                            </div>
+                                            <div class="default-2-3">
+                                                <h3 th:text="${hero.name}"></h3>
+                                                <p th:text="${hero.role}"></p>
+                                                <div class="faction-small independent-icon">
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="default-1-2">
+                            <div class="content-border" th:if="${hero.getPassToVideo() != null}">
+                                <iframe
+                                        width="450" height="253"
+                                        th:src="${hero.passToVideo}"
+                                        frameborder="0"
+                                        allowfullscreen=""></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    </table>
+            </div>
+
+            <div class="section-wrapper-bottom"></div>
+        </div>
+    </div>
+
+    <div class="section-wrapper">
+        <div class="section-wrapper-top"></div>
+
+        <div class="section-wrapper-content">
+            <div class="section-quickbg"></div>
+            <div class="section-wrapper-content-wrapper">
+                <div class="content-border">
+                    <header class="header-primary accent-before">
+                        <h2>Abilities</h2>
+                    </header>
+                </div>
+
+                <div class="gs-container" th:each="ability : ${abilities}">
+                    <div class="default-3-5">
+                        <div class="gs-container">
+                            <div class="default-1-6">
+                                <span class="content-border">
+                                    <img th:src="${ability.passToImg}">
+                                </span>
+                            </div>
+                            <div class="default-5-6">
+                                <h3 th:text="${ability.name}"></h3>
+                                <p>
+                                </p>
+                            </div>
+                            <div class="default-1-1">
+                                <p class="spell-description" th:text="${ability.discription}">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="default-2-5">
+                        <div class="content-border">
+
+                            <iframe width="348" height="196"
+                                    th:src="${ability.passToVideo}" frameborder="0"
+                                    allowfullscreen="">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-wrapper-bottom"></div>
+
+    </div>
 </div>
 <!-- /container -->
 

@@ -21,11 +21,6 @@ public class ForumTopicGlobalServiceImpl
     }
 
     @Override
-    public ForumTopicGlobal changeName(ForumTopicGlobal topic, String name) {
-        return getRepository().changeName(topic, name);
-    }
-
-    @Override
     public List<ForumTopicSimple> getAllSimpleTopicsById(Long id) {
         return getRepository().getAllSimpleTopicsById(id);
     }

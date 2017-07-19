@@ -23,12 +23,6 @@ public class ForumTopicSimpleDaoImpl extends BaseDaoImpl<ForumTopicSimple> imple
     }
 
     @Override
-    public ForumTopicSimple changeTheme(ForumTopicSimple topicSimple, ForumTopicGlobal topicGlobal) {
-        topicSimple.setTheme(topicGlobal);
-        return update(topicSimple);
-    }
-
-    @Override
     public List<ForumPost> getAllForumPosts(Long primaryKey) {
         QForumPost post = new QForumPost("post");
         JPAQuery<ForumPost> query = new JPAQuery<>(getSessionFactory().getCurrentSession());
@@ -37,11 +31,5 @@ public class ForumTopicSimpleDaoImpl extends BaseDaoImpl<ForumTopicSimple> imple
                 .where(post.forumTopic.id.eq(primaryKey))
                 .fetchResults()
                 .getResults();
-    }
-
-    @Override
-    public ForumTopicSimple changeText(ForumTopicSimple topicSimple, String text) {
-        topicSimple.setText(text);
-        return update(topicSimple);
     }
 }

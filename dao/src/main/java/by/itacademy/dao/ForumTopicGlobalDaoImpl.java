@@ -22,12 +22,6 @@ public class ForumTopicGlobalDaoImpl extends BaseDaoImpl<ForumTopicGlobal> imple
     }
 
     @Override
-    public ForumTopicGlobal changeName(ForumTopicGlobal topic, String name) {
-        topic.setName(name);
-        return update(topic);
-    }
-
-    @Override
     public List<ForumTopicSimple> getAllSimpleTopicsById(Long id) {
         QForumTopicSimple topic = new QForumTopicSimple("topic");
         JPAQuery<ForumTopicSimple> query = new JPAQuery<>(getSessionFactory().getCurrentSession());

@@ -59,18 +59,28 @@
             <div>
                 <p style="font-size: large">Personal information</p>
                 <br>
+                <p>Name: </p>
                 <p th:text="${user.getFirstName()}">first name</p>
                 <br>
+                <p>Mail: </p>
                 <p th:text="${user.getMail()}">mail</p>
                 <br>
+                <p>Country: </p>
                 <p th:text="${user.getAddress().getCountry()}">Country</p>
                 <br>
+                <p>City: </p>
                 <p th:text="${user.getAddress().getCity()}">City</p>
+                <br>
+                <br>
+                <br>
+                <br>
+
             </div>
             <footer>
                 <h2 class="page-title">Created topics</h2>
                 <th:block th:each="topic : ${topics}">
-                    <p th:text="${topic.getName()}">name</p>
+                    <a th:text="${topic.getName()}" th:href="@{/news/simple(id=${topic.id})}"></a>
+                    <br>
                 </th:block>
             </footer>
         </article>

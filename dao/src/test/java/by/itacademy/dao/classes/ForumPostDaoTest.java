@@ -21,12 +21,5 @@ public class ForumPostDaoTest extends BaseDaoTest {
         importerToH2.importTestData(forumPostDao.getSessionFactory().getCurrentSession());
     }
 
-    @Test
-    public void changeText() throws Exception {
-        ForumPost post = forumPostDao.getAll().get(0);
-        String text = "ASDFGH";
-        ForumPost changedPost = forumPostDao.changeText(post, text);
-        assertEquals(changedPost.getText(), text);
-    }
 
 }

@@ -41,15 +41,6 @@ public class ForumTopicSimpleDaoTest extends BaseDaoTest {
     }
 
     @Test
-    public void changeTheme() {
-        ForumTopicGlobal topicGlobal = forumTopicGlobalDao.getByName("global topic qwerty");
-        ForumTopicSimple topicSimple = forumTopicSimpleDao.getByName("simple topic");
-        ForumTopicSimple changetTopicSimple = forumTopicSimpleDao.changeTheme(topicSimple, topicGlobal);
-        assertEquals(changetTopicSimple.getTheme(), topicGlobal);
-
-    }
-
-    @Test
     public void getAllForumPosts() {
         ForumTopicSimple topicSimple = forumTopicSimpleDao.getByName("simple topic");
         List<ForumPost> allForumPosts = forumTopicSimpleDao.getAllForumPosts(topicSimple.getId());
@@ -57,14 +48,6 @@ public class ForumTopicSimpleDaoTest extends BaseDaoTest {
         List<String> textForumPost = allForumPosts.stream().map(ForumPost::getText).collect(toList());
         assertTrue(textForumPost.contains("this is comment"));
         assertTrue(textForumPost.contains("qwerty"));
-    }
-
-    @Test
-    public void changeText(){
-        ForumTopicSimple topic = forumTopicSimpleDao.getByName("simple topic");
-        String text = "QWERTY";
-        ForumTopicSimple changedTopic = forumTopicSimpleDao.changeText(topic, text);
-        assertEquals(changedTopic.getText(), text);
     }
 
 }

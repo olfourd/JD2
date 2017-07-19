@@ -7,9 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class ForumPostDaoIml extends BaseDaoImpl<ForumPost> implements ForumPostDao{
-    @Override
-    public ForumPost changeText(ForumPost post, String text) {
-        post.setText(text);
-        return update(post);
-    }
+
 }

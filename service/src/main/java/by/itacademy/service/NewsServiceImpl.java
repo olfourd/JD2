@@ -16,20 +16,6 @@ import java.util.List;
 @Transactional
 @Loggable
 public class NewsServiceImpl extends BaseServiceImpl<News, NewsDaoImpl> implements NewsService{
-    @Override
-    public News changePicture(News model, String src) {
-        return getRepository().changePicture(model, src);
-    }
-
-    @Override
-    public News changeName(News model, String name) {
-        return getRepository().changeName(model, name);
-    }
-
-    @Override
-    public News changeText(News model, String text) {
-        return getRepository().changeText(model, text);
-    }
 
     @Override
     public List<NewsComment> getCommentsByNewsId(Long primaryKey) {

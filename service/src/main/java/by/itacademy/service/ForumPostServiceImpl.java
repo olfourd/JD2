@@ -11,8 +11,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Loggable
 public class ForumPostServiceImpl extends BaseServiceImpl<ForumPost, ForumPostDaoIml> implements ForumPostService {
-    @Override
-    public ForumPost changeText(ForumPost post, String text) {
-        return getRepository().changeText(post, text);
-    }
 }
